@@ -20,5 +20,6 @@ export function createPost(values, dispatch, props) {
         type: "POST_FETCHED",
         ...normalize(resp.body, postSchema),
       });
+      props.reset();
     });
 }
