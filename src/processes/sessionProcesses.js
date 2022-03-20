@@ -1,6 +1,7 @@
 import { apiPost } from "./helpers/api";
 
-export const getSession = () => JSON.parse(localStorage.getItem("session"));
+export const getSession = () =>
+  JSON.parse(localStorage.getItem("session")) ?? false;
 
 export const setSession = (response) => {
   console.log(response);

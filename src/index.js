@@ -14,7 +14,7 @@ function applyDevTools(devTools) {
     : (f) => f;
 }
 
-const accessToken = getSession()["access-token"] ?? null;
+const accessToken = getSession()["access-token"];
 const initialState = { accessToken };
 
 const store = createStore(
