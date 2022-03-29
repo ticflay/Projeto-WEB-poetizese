@@ -2,12 +2,17 @@ import React from "react";
 import { css } from "glamor";
 import LobbyLayout from "../lobby/LobbyLayout";
 import TextField from "../library/forms/TextField";
+import { Link } from "react-router-dom";
 
 const buttonMargin = css({ marginTop: "10px" });
 
 export default function SignInForm(props) {
   return (
     <LobbyLayout>
+      <section>
+        <Link to="/about">Sobre nós</Link>
+        <Link to="/literatura">Literatura</Link>
+      </section>
       <form onSubmit={props.handleSubmit} error={props.error}>
         <TextField
           name="email"
@@ -30,12 +35,7 @@ export default function SignInForm(props) {
           fluid
         />
         <div className={buttonMargin}>
-          <button
-            color="primary"
-            size="large"
-            fluid
-            type="submit"
-          >
+          <button color="primary" size="large" fluid type="submit">
             Login
           </button>
         </div>
