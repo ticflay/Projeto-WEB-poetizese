@@ -31,10 +31,10 @@ export default function SignInForm(props) {
         />
         <div className={buttonMargin}>
           <button
-            onClick={props.handleSubmit}
             color="primary"
             size="large"
             fluid
+            type="submit"
           >
             Login
           </button>

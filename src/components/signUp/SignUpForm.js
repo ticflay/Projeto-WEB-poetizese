@@ -1,12 +1,13 @@
 import React from "react";
 import LobbyLayout from "../lobby/LobbyLayout";
 import { Grid } from "semantic-ui-react";
+import TextField from "../library/forms/TextField";
 
 export default function SignUpForm(props) {
   return (
     <LobbyLayout>
       <form onSubmit={props.handleSubmit} error={props.error}>
-        <input
+        <TextField
           name="username"
           type="text"
           icon="user"
@@ -16,7 +17,7 @@ export default function SignUpForm(props) {
           required
           fluid
         />
-        <input
+        <TextField
           name="email"
           type="email"
           icon="envelope"
@@ -28,7 +29,7 @@ export default function SignUpForm(props) {
         />
         <Grid columns="equal" verticalAlign="bottom" stackable>
           <Grid.Column>
-            <input
+            <TextField
               name="password"
               type="password"
               icon="lock"
@@ -40,7 +41,7 @@ export default function SignUpForm(props) {
             />
           </Grid.Column>
           <Grid.Column>
-            <input
+            <TextField
               name="confirmPassword"
               type="password"
               icon="lock"
@@ -55,8 +56,9 @@ export default function SignUpForm(props) {
         <div>
           <button
             color="primary"
-            disabled={props.pristine || props.submitting}
+            //disabled={props.pristine || props.submitting}
             size="large"
+            type="submit"
             fluid
           >
             Criar conta
