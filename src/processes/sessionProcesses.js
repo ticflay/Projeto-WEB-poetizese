@@ -25,6 +25,7 @@ export const signIn = (values, dispatch, props) => {
         authorization: resp.body.token,
         currentUserId: resp.body.id,
       });
+      window.location("/");
     })
     .catch((err) => console.log(err));
 };

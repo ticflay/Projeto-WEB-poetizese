@@ -14,8 +14,8 @@ function applyDevTools(devTools) {
     : (f) => f;
 }
 
-const accessToken = getSession()?.headers["Authorization"];
-const currentUserId = getSession()?.headers["CurrentUserId"];
+const accessToken = getSession()?.headers?.Authorization ?? null;
+const currentUserId = getSession()?.headers?.CurrentUserId ?? null;
 const initialState = { accessToken, currentUserId };
 
 const store = createStore(
