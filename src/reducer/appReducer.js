@@ -3,6 +3,7 @@ import usersReducer from "./usersReducer";
 import postsReducer from "./postsReducer";
 import authorizationReducer from "./authorizationReducer";
 import { reducer as form } from "redux-form";
+import currentUserReducer from "./currentUserReducer";
 
 export default function appReducer() {
   return combineReducers({
@@ -11,6 +12,7 @@ export default function appReducer() {
       posts: postsReducer,
     }),
     form,
+    currentUserId: currentUserReducer,
     accessToken: authorizationReducer,
   });
 }

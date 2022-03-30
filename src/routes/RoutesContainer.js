@@ -7,9 +7,9 @@ function RoutesContainer({ loggedIn, ...rest }) {
   return loggedIn ? <AppRoutes {...rest} /> : <LobbyRoutes {...rest} />;
 }
 
-function mapStateToProps({ accessToken }) {
+function mapStateToProps({ currentUserId }) {
   return {
-    loggedIn: !!accessToken,
+    loggedIn: !!currentUserId,
   };
 }
 

@@ -3,9 +3,11 @@ import { connect } from "react-redux";
 import CreatePostForm from "./CreatePostForm";
 import { createPost } from "../../processes/postProcesses";
 
-function mapStateToProps() {
+function mapStateToProps(state) {
   return {
-    initialValues: {},
+    initialValues: {
+      user_id: state.currentUserId,
+    },
   };
 }
 

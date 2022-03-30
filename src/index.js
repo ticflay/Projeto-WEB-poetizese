@@ -14,8 +14,9 @@ function applyDevTools(devTools) {
     : (f) => f;
 }
 
-const accessToken = getSession()["access-token"];
-const initialState = { accessToken };
+const accessToken = getSession()?.headers["Authorization"];
+const currentUserId = getSession()?.headers["CurrentUserId"];
+const initialState = { accessToken, currentUserId };
 
 const store = createStore(
   appReducer(),

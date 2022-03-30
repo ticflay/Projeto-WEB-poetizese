@@ -4,7 +4,7 @@ import { apiGet, apiPost } from "./helpers/api";
 const postSchema = new schema.Entity("posts");
 
 export function fetchPosts(dispatch) {
-  apiGet("https://poetizese-api.herokuapp.com/posts").then((resp) => {
+  apiGet("https://poetizese-api.herokuapp.com/api/v1/posts").then((resp) => {
     dispatch({
       type: "POSTS_FETCHED",
       ...normalize(resp.body, new schema.Array(postSchema)),
@@ -13,7 +13,7 @@ export function fetchPosts(dispatch) {
 }
 
 export function createPost(values, dispatch, props) {
-  apiPost("https://poetizese-api.herokuapp.com/posts")
+  apiPost("https://poetizese-api.herokuapp.com/api/v1/posts")
     .send(values)
     .then((resp) => {
       dispatch({
