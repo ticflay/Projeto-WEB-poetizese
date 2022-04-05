@@ -7,6 +7,7 @@ import { getSession } from "./processes/sessionProcesses";
 import ErrorBoundary from "./ErrorBoundary";
 import RoutesContainer from "./routes/RoutesContainer";
 import applyGlobalStyles from "./applyGlobalStyles";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function applyDevTools(devTools) {
   return devTools && process.env.NODE_ENV === "development"
