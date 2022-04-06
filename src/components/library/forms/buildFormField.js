@@ -3,7 +3,7 @@ import { css } from "glamor";
 import Label from "./Label";
 import FieldBlock from "./FieldBlock";
 import Hint from "./Hint";
-import { IconBase } from "react-icons";
+import { InputGroup } from "react-bootstrap";
 
 const layout = {
   message: {
@@ -18,6 +18,13 @@ const layout = {
     fontWeight: "bold",
   },
 };
+
+const iconContainer = css({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  padding: 8,
+});
 
 const errorWrapper = css({
   textAlign: "left",
@@ -59,6 +66,7 @@ const buildFormField = (InputComponent, selectProps) => (props) => {
     message,
     minSize,
     inline,
+    Icon,
     ...rest
   } = props;
 
@@ -72,10 +80,21 @@ const buildFormField = (InputComponent, selectProps) => (props) => {
       <Label style={layout.label} htmlFor={id} disabled={props.disabled}>
         {label}
       </Label>
-      <span className={css(errorWrapper, { width: rest.width })}>
+      <span
+        className={css(errorWrapper, {
+          width: rest.width,
+          backgroundColor: "white",
+          display: "flex",
+          borderWidth: 1,
+          borderRadius: 5,
+          overflow: "hidden",
+        })}
+      >
+        <div className={iconContainer}>{Icon}</div>
         <InputComponent
           {...selectProps({ ...input, id: id }, meta, rest)}
           error={!!error}
+          style={{ borderWidth: 0 }}
         />
         {hint && <Hint>{hint}</Hint>}
       </span>

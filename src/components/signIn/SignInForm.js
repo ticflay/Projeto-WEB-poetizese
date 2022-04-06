@@ -2,11 +2,10 @@ import React from "react";
 import { css } from "glamor";
 import LobbyLayout from "../lobby/LobbyLayout";
 import TextField from "../library/forms/TextField";
-import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { colors } from "../../lib/themeColors";
-import NavbarLobby from "../Navbar/NavbarLobby";
+import * as FaIcons from "react-icons/fa";
 
 const buttonMargin = css({
   marginTop: "10px",
@@ -91,7 +90,7 @@ export default function SignInForm(props) {
             <TextField
               name="email"
               type="email"
-              icon="user"
+              Icon={<FaIcons.FaUser />}
               iconPosition="left"
               placeholder="E-mail ou nome de usuário..."
               required
@@ -103,7 +102,7 @@ export default function SignInForm(props) {
             <TextField
               name="password"
               type="password"
-              icon="lock"
+              Icon={<FaIcons.FaLock />}
               iconPosition="left"
               placeholder="Senha"
               required
