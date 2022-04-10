@@ -1,12 +1,12 @@
 import { css } from "glamor";
 import React from "react";
+import { colors } from "../lib/themeColors";
 
 const container = css({
-  height: "100vh",
+  minHeight: "100vh",
   width: "100vw",
   display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
+  backgroundColor: colors.purple,
 });
 
 export default function Lobby(props) {

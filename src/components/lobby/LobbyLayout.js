@@ -5,8 +5,7 @@ import NavbarLobby from "../Navbar/NavbarLobby";
 
 const container = css({
   backgroundColor: colors.purple,
-  width: "100%",
-  height: "100%",
+  width: "100vw",
   display: "flex",
   flexDirection: "column",
 });

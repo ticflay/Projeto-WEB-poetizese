@@ -23,9 +23,9 @@ const styles = {
     borderWidth: 0,
     alignSelf: "center",
     justifySelf: "center",
-    width: 400,
     fontWeight: "bolder",
     fontSize: 18,
+    width: "100%",
   },
   formLabel: {},
   formInput: {},
@@ -34,7 +34,6 @@ const styles = {
   },
   container: {
     backgroundColor: colors.white,
-    width: 600,
     margin: 10,
     padding: 20,
     borderRadius: 15,
@@ -48,7 +47,6 @@ const styles = {
     flexDirection: "column",
     justifyContent: "center",
     margin: 15,
-    width: 400,
     alignSelf: "center",
     alignItems: "center",
   },
@@ -63,8 +61,9 @@ const styles = {
   },
   bottomForm: {
     display: "flex",
-    marginLeft: 80,
-    marginTop: 15,
+    marginTop: 20,
+    marginBottom: 30,
+    justifyContent: "center",
   },
   signUp: {
     marginLeft: 10,
@@ -75,7 +74,10 @@ const styles = {
 export default function SignInForm(props) {
   return (
     <LobbyLayout>
-      <section style={styles.container}>
+      <section
+        style={styles.container}
+        className="col-xs-12 col-sm-12 col-md-8 col-lg-5"
+      >
         <header style={styles.textContainer}>
           <h1 style={styles.textH1}>Bem-vindo(a) </h1>
           <h1 style={styles.textH1}>ao poetizise!</h1>
@@ -86,7 +88,10 @@ export default function SignInForm(props) {
           onSubmit={props.handleSubmit}
           error={props.error}
         >
-          <Form.Group style={styles.inputContainer} className="mb-3">
+          <Form.Group
+            style={styles.inputContainer}
+            className="col-10 col-md-8 mb-3"
+          >
             <TextField
               name="email"
               type="email"
@@ -95,10 +100,12 @@ export default function SignInForm(props) {
               placeholder="E-mail ou nome de usuário..."
               required
               fluid
-              width={400}
             />
           </Form.Group>
-          <Form.Group style={styles.inputContainer} className="mb-3">
+          <Form.Group
+            style={styles.inputContainer}
+            className="col-10 col-md-8 mb-3"
+          >
             <TextField
               name="password"
               type="password"
@@ -107,10 +114,9 @@ export default function SignInForm(props) {
               placeholder="Senha"
               required
               fluid
-              width={400}
             />
           </Form.Group>
-          <div className={buttonMargin}>
+          <div className=" col-10 col-md-8 mt-3">
             <Button
               variant="primary"
               size="large"
