@@ -1,6 +1,6 @@
 import React from "react";
 import { Field } from "redux-form";
-import { Input as TextInput } from "semantic-ui-react";
+import TextInput from "react-bootstrap/FormControl";
 import buildFormField from "./buildFormField";
 import isEmail from "validator/lib/isEmail";
 import isLength from "validator/lib/isLength";

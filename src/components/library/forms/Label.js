@@ -1,5 +1,6 @@
 import React from "react";
 import { css } from "glamor";
+import FormLabel from "react-bootstrap/FormLabel";
 
 const labelStyles = {
   default: {
@@ -29,8 +30,8 @@ export default function Label(props) {
     className
   );
   return (
-    <label className={label} {...rest}>
+    <FormLabel className={label} {...rest}>
       {children}
-    </label>
+    </FormLabel>
   );
 }
