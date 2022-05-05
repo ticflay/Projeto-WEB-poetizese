@@ -12,8 +12,8 @@ const container = css({
 
 export default function LobbyLayout(props) {
   return (
-    <div className={container}>
-      <NavbarLobby />
+    <div style={props.style} className={container}>
+      <NavbarLobby style={props.navStyle} />
       {props.children}
     </div>
   );

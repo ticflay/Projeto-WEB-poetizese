@@ -23,7 +23,7 @@ const styles = {
 
 const NavbarLobby = (props) => {
   return (
-    <Navbar expand="lg" className={container}>
+    <Navbar style={props.style} expand="lg" className={container}>
       <Container>
         <Navbar.Brand style={styles.brand} href="/*">
           Poetizise
