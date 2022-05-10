@@ -50,14 +50,6 @@ const Literatura = (props) => {
           </h5>
         </div>
         <div>
-          <iframe
-            src="https://www.linkedin.com/embed/feed/update/urn:li:share:6926870541077200896"
-            height="1000"
-            width="1000"
-            frameborder="0"
-            allowfullscreen=""
-            title="Publicação incorporada"
-          ></iframe>
           <Accordion className={styles.accordion} defaultActiveKey="0" flush>
             <Accordion.Item className={styles.accordionItem} eventKey="0">
               <Accordion.Header className={styles.accordionHeader}>
@@ -84,11 +76,16 @@ const Literatura = (props) => {
                   também estão presentes, além do colégio, em provas de
                   vestibular.
                 </p>
+                <footer>
+                  Fonte:{" "}
+                  <a href="https://www.significados.com.br/literatura/#:~:text=Literatura%20%C3%A9%20a%20arte%20de,literatura%20de%20cordel%20e%20etc.">
+                    Significados
+                  </a>
+                </footer>
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="1">
               <Accordion.Header>
-                {" "}
                 <h2>História da Literatura </h2>
               </Accordion.Header>
               <Accordion.Body>
@@ -127,17 +124,14 @@ const Literatura = (props) => {
                   manifestação literária produzida após os anos de 1945 no
                   Brasil.
                 </p>
+                <footer>
+                  Fonte:{" "}
+                  <a href="https://www.portugues.com.br/literatura">História</a>
+                </footer>
               </Accordion.Body>
             </Accordion.Item>
           </Accordion>
-
-          <h3>Fontes:</h3>
-          <a href="https://www.significados.com.br/literatura/#:~:text=Literatura%20%C3%A9%20a%20arte%20de,literatura%20de%20cordel%20e%20etc.">
-            Significados
-          </a>
-          <a href="https://www.portugues.com.br/literatura">História</a>
         </div>
-        <Link to="signin">VOLTAR PARA O LOGIN</Link>
       </div>
     </LobbyLayout>
   );
