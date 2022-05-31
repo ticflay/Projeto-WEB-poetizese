@@ -12,6 +12,9 @@ export default function Posts(props) {
   const { posts } = props;
   return (
     <div>
+      <form onSubmit={props.handleSubmit}>
+        <button type="submit">SAIR</button>
+      </form>
       <CreatePostFormContainer />
       <div>
         {posts?.length > 0 &&

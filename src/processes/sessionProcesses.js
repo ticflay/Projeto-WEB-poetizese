@@ -29,3 +29,9 @@ export const signIn = (values, dispatch, props) => {
     })
     .catch((err) => console.log(err));
 };
+
+export const signOut = (dispatch) => {
+  localStorage.removeItem("persist:root");
+  localStorage.clear();
+  window.location.href = "/";
+};
