@@ -20,6 +20,7 @@ export const signIn = (values, dispatch, props) => {
     .send(values)
     .then((resp) => {
       setSession(resp);
+      console.log(resp);
       dispatch({
         type: "AUTHORIZATION_FETCHED",
         authorization: resp.body.token,
@@ -30,7 +31,7 @@ export const signIn = (values, dispatch, props) => {
     .catch((err) => console.log(err));
 };
 
-export const signOut = (dispatch) => {
+export const signOut = () => {
   localStorage.removeItem("persist:root");
   localStorage.clear();
   window.location.href = "/";

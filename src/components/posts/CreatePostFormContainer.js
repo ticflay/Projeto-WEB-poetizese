@@ -6,7 +6,7 @@ import { createPost } from "../../processes/postProcesses";
 function mapStateToProps(state) {
   return {
     initialValues: {
-      user_id: state.currentUserId,
+      user_id: state.currentUser.id,
     },
   };
 }

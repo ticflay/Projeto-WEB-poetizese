@@ -67,6 +67,9 @@ const buildFormField = (InputComponent, selectProps) => (props) => {
     minSize,
     inline,
     Icon,
+    inputStyle,
+    className,
+    inputClassName,
     ...rest
   } = props;
 
@@ -76,7 +79,11 @@ const buildFormField = (InputComponent, selectProps) => (props) => {
     ? errorMessage(error, validationMessages, shortMessages)
     : undefined;
   return (
-    <FieldBlock inline={inline} style={{ ...style, width: rest.width }}>
+    <FieldBlock
+      className={className}
+      inline={inline}
+      style={{ ...style, width: rest.width }}
+    >
       <Label style={layout.label} htmlFor={id} disabled={props.disabled}>
         {label}
       </Label>
@@ -90,11 +97,12 @@ const buildFormField = (InputComponent, selectProps) => (props) => {
           overflow: "hidden",
         })}
       >
-        <div className={iconContainer}>{Icon}</div>
+        {Icon && <div className={iconContainer}>{Icon}</div>}
         <InputComponent
+          className={inputClassName}
           {...selectProps({ ...input, id: id }, meta, rest)}
           error={!!error}
-          style={{ borderWidth: 0 }}
+          style={{ ...{ borderWidth: 0 }, ...inputStyle }}
         />
         {hint && <Hint>{hint}</Hint>}
       </span>

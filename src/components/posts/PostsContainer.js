@@ -3,11 +3,9 @@ import { connect } from "react-redux";
 import Posts from "./Posts";
 import { fetchPosts } from "../../processes/postProcesses";
 import { getAllPosts } from "../../selectors/postSelectors";
-import { reduxForm } from "redux-form";
-import { signOut } from "../../processes/sessionProcesses";
-
 export const PostsContainer = (props) => {
   const { dispatch } = props;
+
   useEffect(() => {
     fetchPosts(dispatch);
   }, [dispatch]);
@@ -15,13 +13,10 @@ export const PostsContainer = (props) => {
   return <Posts {...props} />;
 };
 
-const mapStateToProps = (state) => ({
-  posts: getAllPosts(state),
-});
+const mapStateToProps = (state) => {
+  return {
+    posts: getAllPosts(state),
+  };
+};
 
-export default connect(mapStateToProps)(
-  reduxForm({
-    form: "logout",
-    onSubmit: signOut,
-  })(PostsContainer)
-);
+export default connect(mapStateToProps)(PostsContainer);

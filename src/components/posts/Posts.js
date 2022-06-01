@@ -1,6 +1,8 @@
 import React from "react";
 import { css } from "glamor";
 import CreatePostFormContainer from "./CreatePostFormContainer";
+import LoggedLayout from "../logged/LoggedLayout";
+import PostItem from "./postItem/PostItem";
 
 const postClass = css({
   border: "1px solid gray",
@@ -11,20 +13,21 @@ const postClass = css({
 export default function Posts(props) {
   const { posts } = props;
   return (
-    <div>
-      <form onSubmit={props.handleSubmit}>
-        <button type="submit">SAIR</button>
-      </form>
-      <CreatePostFormContainer />
-      <div>
-        {posts?.length > 0 &&
-          posts?.map((post) => (
-            <div className={postClass}>
-              <h4>{post?.title}</h4>
-              <p>{post?.content}</p>
-            </div>
-          ))}
+    <LoggedLayout>
+      <div className="flex flex-col">
+        <CreatePostFormContainer />
+        <div>
+          {posts?.length > 0 &&
+            posts.map((post) => (
+              <PostItem
+                title={post.title}
+                content={post.content}
+                author={post.author}
+                key={post.id}
+              />
+            ))}
+        </div>
       </div>
-    </div>
+    </LoggedLayout>
   );
 }
