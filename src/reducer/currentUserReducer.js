@@ -3,6 +3,9 @@ export default function currentUserReducer(state = null, action) {
     case "AUTHORIZATION_FETCHED":
     case "AUTHORIZATION_REMOVED":
       return action.currentUserId;
+    case "CURRENT_USER_FETCHED":
+      return action.currentUser;
+    case "CURRENT_USER_UPDATED":
     default:
       return state;
   }

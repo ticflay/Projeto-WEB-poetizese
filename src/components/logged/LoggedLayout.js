@@ -1,19 +1,20 @@
 import React from "react";
 import { css } from "glamor";
 import { colors } from "../../lib/themeColors";
-import NavbarLobby from "../Navbar/NavbarLobby";
+import SidebarContainer from "../Sidebar/SideBarContainer";
 
 const container = css({
-  backgroundColor: colors.purple,
+  backgroundColor: colors.white,
   width: "100vw",
+  height: "100%",
   display: "flex",
-  flexDirection: "column",
+  flexDirection: "row",
 });
 
-export default function LobbyLayout(props) {
+export default function LoggedLayout(props) {
   return (
     <div style={props.style} className={container}>
-      <NavbarLobby style={props.navStyle} />
+      <SidebarContainer />
       {props.children}
     </div>
   );

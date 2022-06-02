@@ -14,5 +14,6 @@ export default function appReducer() {
     form,
     currentUserId: currentUserReducer,
     accessToken: authorizationReducer,
+    currentUser: currentUserReducer,
   });
 }

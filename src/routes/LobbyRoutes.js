@@ -14,7 +14,7 @@ export default function LobbyRoutes() {
           <Route path="/signup" element={<SignUpFormContainer />} exact />
           <Route path="/*" element={<SignInFormContainer />} />
           <Route path="/about" element={<AboutUsPage />} />
-          <Route path="/literatura" element={<Literatura />} />
+          <Route path="/literatura" element={<Literatura lobby={true} />} />
         </Routes>
       </BrowserRouter>
     </Lobby>
