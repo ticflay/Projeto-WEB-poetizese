@@ -86,7 +86,7 @@ export default function SignInForm(props) {
         <Form
           style={styles.formContainer}
           onSubmit={props.handleSubmit}
-          error={props.error}
+          error={props?.error}
         >
           <Form.Group
             style={styles.inputContainer}
@@ -96,10 +96,10 @@ export default function SignInForm(props) {
               name="email"
               type="email"
               Icon={<FaIcons.FaUser />}
-              iconPosition="left"
+              // iconPosition="left"
               placeholder="E-mail ou nome de usuário..."
               required
-              fluid
+              // fluid
             />
           </Form.Group>
           <Form.Group
@@ -110,10 +110,10 @@ export default function SignInForm(props) {
               name="password"
               type="password"
               Icon={<FaIcons.FaLock />}
-              iconPosition="left"
+              // iconPosition="left"
               placeholder="Senha"
               required
-              fluid
+              // fluid
             />
           </Form.Group>
           <div className=" col-10 col-md-8 mt-3">

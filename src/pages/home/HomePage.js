@@ -1,7 +1,6 @@
 import React from "react";
-import LoggedLayout from "../components/logged/LoggedLayout";
-import PostItem from "../components/posts/postItem/PostItem";
-
+import LoggedLayout from "../../components/logged/LoggedLayout";
+import PostItemContainer from "../../components/posts/postItem/PostItemContainer";
 export default function HomePage(props) {
   const { userPosts, currentUser } = props;
   return (
@@ -12,12 +11,9 @@ export default function HomePage(props) {
         </header>
         {userPosts?.length > 0 &&
           userPosts.map((post) => (
-            <PostItem
-              title={post.title}
-              content={post.content}
-              author={post.author}
-              key={post.id}
-              id={post.id}
+            <PostItemContainer
+              post={post}
+              key={post?.id}
               isOwner={post?.author?.id === currentUser.id}
             />
           ))}

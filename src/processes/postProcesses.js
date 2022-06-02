@@ -1,5 +1,5 @@
 import { normalize, schema } from "normalizr";
-import { apiGet, apiPost } from "./helpers/api";
+import { apiGet, apiPost, apiDel, apiPatch } from "./helpers/api";
 
 const postSchema = new schema.Entity("posts");
 
@@ -21,5 +21,26 @@ export function createPost(values, dispatch, props) {
         ...normalize(resp.body, postSchema),
       });
       props.reset();
+    });
+}
+
+export function deletePost(dispatch, postId) {
+  apiDel(`https://poetizese-api.herokuapp.com/api/v1/posts/${postId}`).then(
+    (response) => {
+      dispatch({ type: "POST_DELETED", postId: postId });
+    }
+  );
+}
+
+export function updatePost(values, dispatch, props) {
+  apiPatch(
+    `https://poetizese-api.herokuapp.com/api/v1/posts/${props?.post?.id}`
+  )
+    .send(values)
+    .then((response) => {
+      dispatch({
+        type: "POST_UPDATED",
+        ...normalize(response.body, postSchema),
+      });
     });
 }

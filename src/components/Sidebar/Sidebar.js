@@ -16,6 +16,7 @@ import {
   FaInfo,
   FaBars,
   FaSignOutAlt,
+  FaBook,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { css } from "glamor";
@@ -47,11 +48,11 @@ export default function Sidebar(props) {
               {currentUser?.name ? (
                 <div className="pb-2">{currentUser?.name}</div>
               ) : null}
-              {currentUser.email && (
-                <div className="pb-2">{currentUser.email}</div>
+              {currentUser?.email && (
+                <div className="pb-2">{currentUser?.email}</div>
               )}
-              {currentUser.username && (
-                <div className="pb-2">{currentUser.username}</div>
+              {currentUser?.username && (
+                <div className="pb-2">{currentUser?.username}</div>
               )}
             </div>
           )}
@@ -62,13 +63,22 @@ export default function Sidebar(props) {
             <MenuItem onClick={closeSidebar} icon={<FaHome />}>
               Inicial <Link to="/" />
             </MenuItem>
-            <MenuItem icon={<FaUser />}>Perfil</MenuItem>
-            <MenuItem icon={<FaPencilAlt />}>
+            <MenuItem icon={<FaUser />}>
+              Perfil
+              <Link to="/userProfile" />
+            </MenuItem>
+            <MenuItem icon={<FaBook />}>
               Poemas <Link to="/posts" />
             </MenuItem>
-            <MenuItem icon={<FaCog />}>Configurações</MenuItem>
+            <SubMenu title="Configurações" icon={<FaCog />}>
+              <MenuItem>
+                Sua conta <Link to="settings/account" />
+              </MenuItem>
+            </SubMenu>
             <MenuItem icon={<FaInfo />}>Literatura</MenuItem>
-
+            <MenuItem icon={<FaPencilAlt />}>
+              Publique <Link to="/createPost" />
+            </MenuItem>
             <MenuItem icon={<FaSignOutAlt />} onClick={props.handleSubmit}>
               Sair
             </MenuItem>

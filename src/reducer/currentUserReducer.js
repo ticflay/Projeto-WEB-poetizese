@@ -5,6 +5,7 @@ export default function currentUserReducer(state = null, action) {
       return action.currentUserId;
     case "CURRENT_USER_FETCHED":
       return action.currentUser;
+    case "CURRENT_USER_UPDATED":
     default:
       return state;
   }

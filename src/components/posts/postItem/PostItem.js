@@ -1,31 +1,56 @@
 import React, { useState } from "react";
 import { FaEllipsisV } from "react-icons/fa";
-import { colors } from "../../../lib/themeColors";
-import { submit } from "redux-form";
+import { useNavigate } from "react-router";
+import UpdatePostFormContainer from "../form/UpdatePostFormContainer";
+import ReactDOM from "react-dom";
+import { Modal } from "react-bootstrap";
 
 export default function PostItem(props) {
+  const { deleteHandler, post, isUpdatedVisible } = props;
   const [isOpen, setIsOpen] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
 
   const toogleConfig = () => {
     setIsOpen((prev) => !prev);
   };
 
+  const cancelEdit = () => {
+    setIsEdit(false);
+  };
+
   const data = [
-    props?.isOwner ? { text: "Deletar", id: 0 } : null,
-    props?.isOwner ? { text: "Editar", id: 1 } : null,
+    props?.isOwner ? { text: "Deletar", id: 0, onClick: deleteHandler } : null,
+    props?.isOwner
+      ? {
+          text: "Editar",
+          id: 1,
+          onClick: () => setIsEdit(true),
+        }
+      : null,
   ];
-  return (
-    <div className="  m-5 px-6 py-4 border-[2px] bg-white/75 shadow-sm rounded-md relative ">
+  return isEdit ? (
+    <UpdatePostFormContainer
+      cancelEdit={cancelEdit}
+      form={`updatePost${post.id}`}
+      post={post}
+    />
+  ) : (
+    <div
+      id="testando"
+      className="  m-5 px-6 py-4 border-[2px] bg-white/75 shadow-sm rounded-md relative "
+    >
       <header className=" text-myColors-grey px-2 font-thin w-full">
         Postado por{" "}
-        {props?.author?.name || props?.author?.email || props?.author?.username}
+        {props?.post?.author?.name ||
+          props?.post?.author?.email ||
+          props?.post?.author?.username}
       </header>
       <header className="border-b w-full border-myColors-grey px-2 pb-2 font-bold text-lg mt-3 flex-wrap ">
-        {props.title}
+        {props?.post?.title}
       </header>
 
       <body className="py-4 px-2 w-full text-justify bg-transparent">
-        {props.content}
+        {props?.post?.content}
       </body>
       <FaEllipsisV
         onClick={toogleConfig}
@@ -39,11 +64,21 @@ export default function PostItem(props) {
 
 function Configs(props) {
   return (
-    <div className={`bg-white ${props.className}`}>
+    <form
+      className={`${props.className} flex flex-col bg-myColors-yellow rounded-lg`}
+    >
       {props?.data.length > 0 &&
         props?.data?.map((item) => {
-          return <div>{item.text}</div>;
+          return (
+            <button
+              className="bg-transparent p-2 m-2 font-semibold"
+              type="button"
+              onClick={item?.onClick}
+            >
+              {item?.text}
+            </button>
+          );
         })}
-    </div>
+    </form>
   );
 }

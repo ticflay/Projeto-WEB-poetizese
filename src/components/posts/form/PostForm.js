@@ -1,9 +1,10 @@
 import React from "react";
 import { css } from "glamor";
-import TextField from "../library/forms/TextField";
-import TextAreaField from "../library/forms/TextAreaField";
+import TextField from "../../library/forms/TextField";
+import TextAreaField from "../../library/forms/TextAreaField";
 
-export default function CreatePostForm(props) {
+export default function PostForm(props) {
+  console.log(props);
   return (
     <form
       onSubmit={props.handleSubmit}
@@ -29,6 +30,15 @@ export default function CreatePostForm(props) {
         fluid
       />
       <div className="w-max absolute right-6 mt-4 ">
+        {props?.edit && (
+          <button
+            type="buttom"
+            className="px-4 py-2 border-[1px] rounded-lg text-red-700 bg-red-400 font-bold hover:bg-opacity-70  "
+            onClick={props?.cancelEdit}
+          >
+            Cancelar
+          </button>
+        )}
         <button
           className="px-4 py-2 border-[1px] rounded-lg bg-myColors-purpleDark text-white font-bold hover:bg-opacity-70  "
           onClick={props.handleSubmit}

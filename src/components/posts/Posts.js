@@ -1,8 +1,8 @@
 import React from "react";
 import { css } from "glamor";
-import CreatePostFormContainer from "./CreatePostFormContainer";
+import CreatePostFormContainer from "./form/CreatePostFormContainer";
 import LoggedLayout from "../logged/LoggedLayout";
-import PostItem from "./postItem/PostItem";
+import PostItemContainer from "./postItem/PostItemContainer";
 
 const postClass = css({
   border: "1px solid gray",
@@ -19,12 +19,7 @@ export default function Posts(props) {
         <div>
           {posts?.length > 0 &&
             posts.map((post) => (
-              <PostItem
-                title={post.title}
-                content={post.content}
-                author={post.author}
-                key={post.id}
-              />
+              <PostItemContainer post={post} key={post.id} />
             ))}
         </div>
       </div>
