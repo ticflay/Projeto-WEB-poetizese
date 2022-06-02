@@ -75,7 +75,10 @@ export default function Sidebar(props) {
                 Sua conta <Link to="settings/account" />
               </MenuItem>
             </SubMenu>
-            <MenuItem icon={<FaInfo />}>Literatura</MenuItem>
+            <MenuItem icon={<FaInfo />}>
+              Literatura
+              <Link to="/literatura" />
+            </MenuItem>
             <MenuItem icon={<FaPencilAlt />}>
               Publique <Link to="/createPost" />
             </MenuItem>

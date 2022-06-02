@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchPosts } from "../../processes/postProcesses";
+import { signOut } from "../../processes/sessionProcesses";
 import { fetchCurrentUser } from "../../processes/userProcesses";
 import { getCurrentUserPosts } from "../../selectors/postSelectors";
 import { currentUser as getCurrentUser } from "../../selectors/userSelector";
