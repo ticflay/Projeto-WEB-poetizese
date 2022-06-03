@@ -5,7 +5,7 @@ import CreatePostFormContainer from "../../components/posts/form/CreatePostFormC
 export default function PostCreationScreen(props) {
   return (
     <LoggedLayout>
-      <div className="w-full">
+      <div className=" mx-10 w-full h-screen">
         <div> Aqui você pode publicar os seus poemas!</div>
         <CreatePostFormContainer />
       </div>

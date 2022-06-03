@@ -20,7 +20,9 @@ const mapStateToProps = (state) => {
   return {
     currentUser,
     initialValues: {
-      currentUser,
+      email: currentUser.email,
+      username: currentUser.username,
+      name: currentUser.name,
     },
   };
 };

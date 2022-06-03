@@ -18,7 +18,7 @@ export default function AppRoutes() {
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<HomePageContainer />} exact />
           <Route path="/createPost" element={<PostCreationScreenContainer />} />
-          <Route path="/userProfile" element={<UserProfileContainer />} />
+          <Route path="/profile/:id" element={<UserProfileContainer />} />
           <Route
             path="/settings/account"
             element={<AccountConfigurationContainer />}

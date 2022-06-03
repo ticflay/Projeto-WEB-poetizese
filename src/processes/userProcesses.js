@@ -1,8 +1,9 @@
-import { apiGet, apiPatch } from "./helpers/api";
+import { apiGet, apiPatch, apiPut } from "./helpers/api";
 import { normalize, schema } from "normalizr";
 import { getSession } from "./sessionProcesses";
 
 const currentUserSchema = new schema.Entity("currentUser");
+const userSchema = new schema.Entity("users");
 
 export const fetchCurrentUser = (dispatch) => {
   const session = getSession();
@@ -21,7 +22,7 @@ export const updateCurrentUser = (values, dispatch) => {
   console.log(values);
   const session = getSession();
   const id = session?.headers?.CurrentUserId;
-  apiPatch(`https://poetizese-api.herokuapp.com/api/v1/users/${id}`)
+  apiPut(`https://poetizese-api.herokuapp.com/api/v1/users/${id}`)
     .send(values)
     .then((response) => {
       console.log(response);
@@ -30,4 +31,15 @@ export const updateCurrentUser = (values, dispatch) => {
         currentUser: response.body,
       });
     });
+};
+
+export const fetchUsers = (dispatch) => {
+  apiGet(`https://poetizese-api.herokuapp.com/api/v1/users`).then(
+    (response) => {
+      dispatch({
+        type: "USERS_FETCHED",
+        ...normalize(response.body, new schema.Array(userSchema)),
+      });
+    }
+  );
 };

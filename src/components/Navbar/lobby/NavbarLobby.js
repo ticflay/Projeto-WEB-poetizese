@@ -3,7 +3,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import { css } from "glamor";
-import { colors } from "../../lib/themeColors";
+import { colors } from "../../../lib/themeColors";
 
 const container = css({
   backgroundColor: colors.white,

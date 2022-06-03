@@ -1,7 +1,7 @@
 import React from "react";
 import { css } from "glamor";
 import { colors } from "../../lib/themeColors";
-import NavbarLobby from "../Navbar/NavbarLobby";
+import NavbarLobby from "../Navbar/lobby/NavbarLobby";
 
 const container = css({
   backgroundColor: colors.purple,

@@ -9,7 +9,7 @@ export default function PostForm(props) {
     <form
       onSubmit={props.handleSubmit}
       error={props.error}
-      className=" m-5  px-4 pt-4 pb-28 bg-white/75 shadow-sm rounded-md relative justify-between min-h-fit "
+      className=" my-5 px-4 pt-4 pb-28 bg-white/75 shadow-sm rounded-md relative justify-between min-h-fit "
     >
       <TextField
         name="title"

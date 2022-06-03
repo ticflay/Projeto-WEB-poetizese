@@ -26,6 +26,7 @@ export const signIn = (values, dispatch, props) => {
         authorization: resp.body.token,
         currentUserId: resp.body.id,
       });
+      alert("Logado com sucesso");
       window.location("/");
     })
     .catch((err) => console.log(err));

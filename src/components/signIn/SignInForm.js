@@ -95,9 +95,9 @@ export default function SignInForm(props) {
             <TextField
               name="email"
               type="email"
-              Icon={<FaIcons.FaUser />}
+              Icon={<FaIcons.FaMailBulk />}
               // iconPosition="left"
-              placeholder="E-mail ou nome de usuário..."
+              placeholder="Informe o E-mail"
               required
               // fluid
             />
