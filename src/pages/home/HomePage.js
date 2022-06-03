@@ -14,7 +14,7 @@ export default function HomePage(props) {
             <PostItemContainer
               post={post}
               key={post?.id}
-              isOwner={post?.author?.id === currentUser.id}
+              isOwner={post?.author?.id === currentUser?.id}
             />
           ))}
       </div>

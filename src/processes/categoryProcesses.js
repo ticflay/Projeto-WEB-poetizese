@@ -2,16 +2,12 @@ import { apiGet, apiPatch } from "./helpers/api";
 import { normalize, schema } from "normalizr";
 import { getSession } from "./sessionProcesses";
 
-const usersSchema = new schema.Entity("users");
+const currentUserSchema = new schema.Entity("currentUser");
 
 export const fetchCurrentUser = (dispatch) => {
   const session = getSession();
   const id = session?.headers?.CurrentUserId;
   apiGet(`api/v1/users/${id}`).then((response) => {
-    dispatch({
-      type: "USER_FETCHED",
-      ...normalize(response.body, usersSchema),
-    });
     dispatch({
       type: "CURRENT_USER_FETCHED",
       currentUser: response.body,
@@ -27,11 +23,6 @@ export const updateCurrentUser = (values, dispatch) => {
     .send(values)
     .then((response) => {
       console.log(response);
-      console.log(response);
-      dispatch({
-        type: "USER_UPDATED",
-        ...normalize(response.body, usersSchema),
-      });
       dispatch({
         type: "USER_UPDATED",
         currentUser: response.body,

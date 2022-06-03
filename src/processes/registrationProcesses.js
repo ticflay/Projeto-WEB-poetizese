@@ -4,7 +4,7 @@ import { apiPost } from "./helpers/api";
 const userSchema = new schema.Entity("users");
 
 export const signUp = (values, dispatch, props) => {
-  apiPost("https://poetizese-api.herokuapp.com/api/v1/users")
+  apiPost("api/v1/users")
     .send(values)
     .then((resp) => {
       dispatch({

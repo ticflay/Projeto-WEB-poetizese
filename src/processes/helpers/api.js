@@ -7,8 +7,11 @@ export function serializeSnakeCase(data) {
   return JSON.stringify(normalizeObject(data, "snake"));
 }
 
+const BASE_URL = "https://poetizese-api.herokuapp.com/";
+//const BASE_URL = "http://localhost:3000/";
+
 export function apiGet(url) {
-  return get(url)
+  return get(BASE_URL + url)
     .use(middleware)
     .use(unauthorizedMiddleware)
     .type("json")
@@ -16,7 +19,7 @@ export function apiGet(url) {
 }
 
 export function apiPost(url) {
-  return post(url)
+  return post(BASE_URL + url)
     .use(middleware)
     .use(unauthorizedMiddleware)
     .type("json")
@@ -25,7 +28,7 @@ export function apiPost(url) {
 }
 
 export function apiPatch(url) {
-  return patch(url)
+  return patch(BASE_URL + url)
     .use(middleware)
     .use(unauthorizedMiddleware)
     .type("json")
@@ -34,7 +37,7 @@ export function apiPatch(url) {
 }
 
 export function apiDel(url) {
-  return del(url)
+  return del(BASE_URL + url)
     .use(middleware)
     .use(unauthorizedMiddleware)
     .type("json")
@@ -42,7 +45,7 @@ export function apiDel(url) {
 }
 
 export function apiPut(url) {
-  return put(url)
+  return put(BASE_URL + url)
     .use(middleware)
     .use(unauthorizedMiddleware)
     .type("json")

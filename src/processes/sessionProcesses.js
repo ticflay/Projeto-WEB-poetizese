@@ -16,7 +16,7 @@ export const setSession = (response) => {
 };
 
 export const signIn = (values, dispatch, props) => {
-  apiPost("https://poetizese-api.herokuapp.com/api/v1/auth/login")
+  apiPost("api/v1/auth/login")
     .send(values)
     .then((resp) => {
       setSession(resp);
