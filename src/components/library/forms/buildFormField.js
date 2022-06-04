@@ -3,7 +3,6 @@ import { css } from "glamor";
 import Label from "./Label";
 import FieldBlock from "./FieldBlock";
 import Hint from "./Hint";
-import { InputGroup } from "react-bootstrap";
 
 const layout = {
   message: {
@@ -75,9 +74,7 @@ const buildFormField = (InputComponent, selectProps) => (props) => {
 
   const id = input.id || input.name;
   const error = meta.touched ? meta.error : undefined;
-  const errorMsg = error
-    ? errorMessage(error, validationMessages, shortMessages)
-    : undefined;
+
   return (
     <FieldBlock
       className={className}
