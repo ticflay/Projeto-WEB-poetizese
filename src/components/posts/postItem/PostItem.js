@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { FaEllipsisV } from "react-icons/fa";
 import UpdatePostFormContainer from "../form/UpdatePostFormContainer";
+import ReactDOM from "react-dom";
+import { Modal } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const categoryWrapper = {
   marginTop: 20,
@@ -39,14 +42,18 @@ export default function PostItem(props) {
   ) : (
     <div
       id="testando"
-      className="  m-5 px-6 py-4 border-[2px] bg-white/75 shadow-sm rounded-md relative "
+      className=" my-5 px-6 py-4 border-[2px] bg-white/75 shadow-sm rounded-md relative "
     >
-      <header className=" text-myColors-grey px-2 font-thin w-full">
+      <Link
+        className=" text-myColors-grey px-2 font-thin w-full"
+        to={`/profile/${props?.post?.author?.id}`}
+      >
+        {" "}
         Postado por{" "}
         {props?.post?.author?.name ||
           props?.post?.author?.email ||
           props?.post?.author?.username}
-      </header>
+      </Link>
       <header className="border-b w-full border-myColors-grey px-2 pb-2 font-bold text-lg mt-3 flex-wrap ">
         {props?.post?.title}
       </header>

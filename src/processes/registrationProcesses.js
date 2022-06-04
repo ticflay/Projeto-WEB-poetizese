@@ -11,5 +11,10 @@ export const signUp = (values, dispatch, props) => {
         type: "USER_CREATED",
         ...normalize(resp.body, new schema.Array(userSchema)),
       });
+      alert("Conta criada com sucesso!");
+      props.reset();
+    })
+    .catch((err) => {
+      alert(`Verfique as informações fornecidas.\n Mensagem de erro:`, err);
     });
 };

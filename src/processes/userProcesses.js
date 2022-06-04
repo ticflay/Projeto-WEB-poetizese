@@ -1,4 +1,4 @@
-import { apiGet, apiPatch } from "./helpers/api";
+import { apiGet, apiPatch, apiPut } from "./helpers/api";
 import { normalize, schema } from "normalizr";
 import { getSession } from "./sessionProcesses";
 
@@ -37,4 +37,13 @@ export const updateCurrentUser = (values, dispatch) => {
         currentUser: response.body,
       });
     });
+};
+
+export const fetchUsers = (dispatch) => {
+  apiGet(`/api/v1/users`).then((response) => {
+    dispatch({
+      type: "USERS_FETCHED",
+      ...normalize(response.body, new schema.Array(usersSchema)),
+    });
+  });
 };

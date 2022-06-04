@@ -17,31 +17,26 @@ import {
   FaBars,
   FaSignOutAlt,
   FaBook,
+  FaSearch,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { css } from "glamor";
 import { colors } from "../../lib/themeColors";
-
 const sideBar = css({
   backgroundColor: colors.purple,
 });
 
 export default function Sidebar(props) {
-  const { currentUser } = props;
-
-  const [collapsed, setCollapsed] = useState(true);
-
-  const handleToogle = () => {
-    setCollapsed((prev) => !prev);
-  };
-
-  const closeSidebar = () => {
-    setCollapsed((prev) => false);
-  };
+  const { currentUser, collapsed } = props;
 
   return (
-    <div className="min-h-screen">
-      <ProSidebar onToggle={handleToogle} collapsed={collapsed} breakPoint="sm">
+    <div className="max-h-full">
+      <ProSidebar
+        image={require("../../assets/backscreen.png")}
+        onToggle={props.handleToogle}
+        collapsed={collapsed}
+        breakPoint="sm"
+      >
         <SidebarHeader className="flex flex-row justify-between p-4">
           {!collapsed && (
             <div className="flex flex-col items-center">
@@ -56,23 +51,22 @@ export default function Sidebar(props) {
               )}
             </div>
           )}
-          <FaBars className="cursor-pointer" size={25} onClick={handleToogle} />
         </SidebarHeader>
         <SidebarContent>
           <Menu>
-            <MenuItem onClick={closeSidebar} icon={<FaHome />}>
+            <MenuItem icon={<FaHome />}>
               Inicial <Link to="/" />
             </MenuItem>
             <MenuItem icon={<FaUser />}>
               Perfil
-              <Link to="/userProfile" />
+              <Link to={`/profile/${currentUser?.id}`} />
             </MenuItem>
             <MenuItem icon={<FaBook />}>
               Poemas <Link to="/posts" />
             </MenuItem>
             <SubMenu title="Configurações" icon={<FaCog />}>
               <MenuItem>
-                Sua conta <Link to="settings/account" />
+                Sua conta <Link to="/settings/account" />
               </MenuItem>
             </SubMenu>
             <MenuItem icon={<FaInfo />}>
@@ -82,6 +76,7 @@ export default function Sidebar(props) {
             <MenuItem icon={<FaPencilAlt />}>
               Publique <Link to="/createPost" />
             </MenuItem>
+            {/* <MenuItem icon={<FaSearch />}>Procurar</MenuItem> */}
             <MenuItem icon={<FaSignOutAlt />} onClick={props.handleSubmit}>
               Sair
             </MenuItem>

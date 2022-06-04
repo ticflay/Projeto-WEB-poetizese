@@ -33,11 +33,13 @@ export default function AccountConfiguration(props) {
             <TextField name="password" placeholder="Senha" />
             <button
               style={buttonStyle}
+              className="w-full bg-myColors-purpleDark p-3 text-white font-extrabold text-xl rounded-lg mt-4"
               type="submit"
               onClick={(e) => {
                 e.preventDefault();
                 props.handleSubmit();
               }}
+              disabled={props.pristine || props.submitting}
             >
               Enviar
             </button>

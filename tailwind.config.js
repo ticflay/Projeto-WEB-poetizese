@@ -10,6 +10,7 @@ module.exports = {
           orange: "#f8b133",
           grey: "rgb(201, 202, 205)",
           white: "rgb(216,216,216)",
+          sideNavBar: "#48325e",
         },
       },
     },
