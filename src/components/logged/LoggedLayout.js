@@ -22,13 +22,13 @@ export default function LoggedLayout(props) {
   };
 
   return (
-    <div style={props.style} className={`${container}`}>
+    <div style={props.style} className={`${container} min-h-screen`}>
       <NavbarLoggedContainer
         closeSidebar={closeSidebar}
         handleToogle={handleToogle}
         className="bg-myColors-sideNavBar w-full"
       />
-      <div className="flex flex-row ">
+      <div className="flex flex-row min-h-screen">
         <SidebarContainer collapsed={sideBarCollapsed} />
         {props.children}
       </div>

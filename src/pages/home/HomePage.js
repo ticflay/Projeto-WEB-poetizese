@@ -8,7 +8,7 @@ export default function HomePage(props) {
   const [search, setSearch] = useState("");
   return (
     <LoggedLayout>
-      <div className="flex flex-col max-w-full my-5 mx-32 scrollbar">
+      <div className="flex flex-col max-w-full my-5 mx-32 scrollbar w-full">
         <header className=" self-center font-extrabold font-mono text-5xl m-4">
           Seus Poemas
         </header>

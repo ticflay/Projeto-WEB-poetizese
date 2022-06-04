@@ -17,7 +17,7 @@ export default function Posts(props) {
   const [search, setSearch] = useState("");
   return (
     <LoggedLayout>
-      <div className="h-screen overflow-hidden">
+      <div className="min-h-screen overflow-hidden w-full">
         <div className="mx-32 mb-5">
           <Searchbar
             placeHolder="Buscar"
