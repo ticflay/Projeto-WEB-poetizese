@@ -43,7 +43,7 @@ export const fetchUsers = (dispatch) => {
   apiGet(`/api/v1/users`).then((response) => {
     dispatch({
       type: "USERS_FETCHED",
-      ...normalize(response.body, new schema.Array(userSchema)),
+      ...normalize(response.body, new schema.Array(usersSchema)),
     });
   });
 };
