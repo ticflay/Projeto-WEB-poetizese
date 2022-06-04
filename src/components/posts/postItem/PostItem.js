@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { FaEllipsisV } from "react-icons/fa";
-import { useNavigate } from "react-router";
 import UpdatePostFormContainer from "../form/UpdatePostFormContainer";
-import ReactDOM from "react-dom";
-import { Modal } from "react-bootstrap";
+
+const categoryWrapper = {
+  marginTop: 20,
+};
 
 export default function PostItem(props) {
+  console.log("postitem:", props);
   const { deleteHandler, post, isUpdatedVisible } = props;
   const [isOpen, setIsOpen] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
@@ -51,6 +53,11 @@ export default function PostItem(props) {
 
       <body className="py-4 px-2 w-full text-justify bg-transparent">
         {props?.post?.content}
+        {props.category && (
+          <div style={categoryWrapper}>
+            <strong>Categoria: {props.category.name}</strong>
+          </div>
+        )}
       </body>
       <FaEllipsisV
         onClick={toogleConfig}

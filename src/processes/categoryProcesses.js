@@ -1,31 +1,17 @@
-import { apiGet, apiPatch } from "./helpers/api";
+import { apiGet } from "./helpers/api";
 import { normalize, schema } from "normalizr";
 import { getSession } from "./sessionProcesses";
 
-const currentUserSchema = new schema.Entity("currentUser");
+const categorySchema = new schema.Entity("categories");
 
-export const fetchCurrentUser = (dispatch) => {
+export const fetchCategories = (dispatch) => {
   const session = getSession();
   const id = session?.headers?.CurrentUserId;
-  apiGet(`api/v1/users/${id}`).then((response) => {
+  apiGet(`api/v1/categories`).then((response) => {
+    console.log(response.body);
     dispatch({
-      type: "CURRENT_USER_FETCHED",
-      currentUser: response.body,
+      type: "CATEGORIES_FETCHED",
+      ...normalize(response.body, new schema.Array(categorySchema)),
     });
   });
-};
-
-export const updateCurrentUser = (values, dispatch) => {
-  console.log(values);
-  const session = getSession();
-  const id = session?.headers?.CurrentUserId;
-  apiPatch(`api/v1/users/${id}`)
-    .send(values)
-    .then((response) => {
-      console.log(response);
-      dispatch({
-        type: "USER_UPDATED",
-        currentUser: response.body,
-      });
-    });
 };
