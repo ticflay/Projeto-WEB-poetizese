@@ -43,8 +43,8 @@ export default function AccountConfiguration(props) {
             >
               Enviar
             </button>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </LoggedLayout>
   );
