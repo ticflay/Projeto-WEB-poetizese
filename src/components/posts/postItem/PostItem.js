@@ -58,7 +58,7 @@ export default function PostItem(props) {
         {props?.post?.title}
       </header>
 
-      <body className="py-4 px-2 w-full text-justify bg-transparent">
+      <body className="py-4 px-2 w-full text-justify bg-transparent whitespace-pre-line">
         {props?.post?.content}
         {props.category && (
           <div style={categoryWrapper}>
